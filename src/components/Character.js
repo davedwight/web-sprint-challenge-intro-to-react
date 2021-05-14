@@ -4,12 +4,12 @@ import React from 'react';
 
 export default function Character(props) {
     
-    const { info } = props;
+    const { info, open } = props;
 
     return (
         <>    
             <h3>{info.name}</h3>
-            <button>Dummy button</button>
+            <button onClick={() => open(info)}>Dummy button</button>
         </>
     )
   }

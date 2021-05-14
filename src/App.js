@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import Character from './components/Character';
+import Details from './components/Details'
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -14,14 +15,14 @@ const App = () => {
   //
 
     const [characters, setCharacters] = useState([])
-    const [currentCharacterName, setCurrentCharacterName] = useState(null)
+    const [currentCharacter, setCurrentCharacter] = useState(null)
   
-    const openDetails = name => {
-      setCurrentCharacterName(name)
+    const openDetails = infoObj => {
+      setCurrentCharacter(infoObj)
     }
   
     const closeDetails = () => {
-      setCurrentCharacterName(null)
+      setCurrentCharacter(null)
     }
   
     useEffect(() => {
@@ -40,8 +41,11 @@ const App = () => {
       <h1 className="Header">Characters</h1>
       {
         characters.map(char => {
-          return <Character info={char} />
+          return <Character info={char} key={char.name} open={openDetails} /> // with more time I would create unique IDs for all characters
         })
+      }
+      {
+        currentCharacter && <Details info={currentCharacter} close={closeDetails} />
       }
     </div>
   );
