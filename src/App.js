@@ -2,7 +2,20 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import Character from './components/Character';
-import Details from './components/Details'
+import styled from 'styled-components';
+
+const Container = styled.div`
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(74, 74, 66, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(74, 74, 66, 0.3);
+    border: 5px solid gold;
+`;
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -39,14 +52,13 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      {
-        characters.map(char => {
-          return <Character info={char} key={char.name} open={openDetails} /> // with more time I would create unique IDs for all characters
-        })
-      }
-      {
-        currentCharacter && <Details info={currentCharacter} close={closeDetails} />
-      }
+      <Container>
+        {
+          characters.map(char => {
+            return <Character info={char} key={char.name} /> // with more time I would create unique IDs for all characters
+          })
+        }
+      </Container>
     </div>
   );
 }

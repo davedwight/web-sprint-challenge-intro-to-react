@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export default function Details(props) {
 
-    const { info, close } = props;
-    // const [details, setDetails] = useState(null);
+    const { className, info } = props;
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
 
     return (
-        <>
-            <h2>Character Details:</h2>
-            {
-                info &&
-                <>
-                    <p>Name: {info.name}</p>
+        <div>
+            <Button color="danger" onClick={toggle}>Details</Button>
+            <Modal isOpen={modal} toggle={toggle} className={className}>
+                <ModalHeader toggle={toggle}>{info.name}</ModalHeader>
+                <ModalBody>
                     <p>Birth Year: {info.birth_year}</p>
                     <p>Gender: {info.gender}</p>
                     <p>Hair Color: {info.hair_color}</p>
                     <p>Skin Color: {info.skin_color}</p>
-                    <p>Height: {info.height}</p>
-                    <p>Mass: {info.mass}</p>
-                </>
-            }
-            <button onClick={close}>Close</button>
-        </>
+                    <p>Height: {info.height} inches</p>
+                    <p>Mass: {info.mass} kgs</p>
+                </ModalBody>
+            </Modal>
+        </div>
     )
 }
