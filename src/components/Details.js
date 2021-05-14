@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import styles from '../App.css';
 
 export default function Details(props) {
 
@@ -9,7 +10,7 @@ export default function Details(props) {
 
     return (
         <div>
-            <Button color="danger" onClick={toggle}>Details</Button>
+            <Button className="button" color="danger" onClick={toggle}>Details</Button>
             <Modal isOpen={modal} toggle={toggle} className={className}>
                 <ModalHeader toggle={toggle}>{info.name}</ModalHeader>
                 <ModalBody>

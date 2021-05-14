@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const Container = styled.div`
     width: 80%;
     margin: 0 auto;
+    margin-bottom: 10%;
     background-color: rgba(74, 74, 66, 0.5);
     display: flex;
     flex-direction: column;
@@ -18,25 +19,8 @@ const Container = styled.div`
 `;
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
-  
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
-
-  //
 
     const [characters, setCharacters] = useState([])
-    const [currentCharacter, setCurrentCharacter] = useState(null)
-  
-    const openDetails = infoObj => {
-      setCurrentCharacter(infoObj)
-    }
-  
-    const closeDetails = () => {
-      setCurrentCharacter(null)
-    }
   
     useEffect(() => {
       axios('https://swapi.dev/api/people')
@@ -51,11 +35,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <h1 className="Header">REACT WARS</h1>
       <Container>
         {
           characters.map(char => {
-            return <Character info={char} key={char.name} /> // with more time I would create unique IDs for all characters
+            return <Character info={char} key={char.name} />
           })
         }
       </Container>

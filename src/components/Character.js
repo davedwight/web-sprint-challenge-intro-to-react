@@ -9,13 +9,13 @@ const CharacterContainer = styled.div`
     background-color: rgba(255, 255, 255, 0.73);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     border-radius: 10px;
 `;
 
 export default function Character(props) {
     
-    const { info, open } = props;
+    const { info } = props;
 
     return (
         <CharacterContainer>    
