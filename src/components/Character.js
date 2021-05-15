@@ -11,6 +11,12 @@ const CharacterContainer = styled.div`
     justify-content: space-between;
     align-items: flex-end;
     border-radius: 10px;
+    &:hover {
+        background-color: indigo;
+        color: white;
+        transform: scale(1.1);
+        transition: all 0.2s ease-in-out;
+    }
 `;
 
 export default function Character(props) {

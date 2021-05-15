@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import styles from '../App.css';
 
 export default function Details(props) {
 
